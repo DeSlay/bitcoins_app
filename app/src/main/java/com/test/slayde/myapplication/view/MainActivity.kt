@@ -14,12 +14,17 @@ import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
+import android.support.v4.app.SupportActivity
+import android.support.v4.app.SupportActivity.ExtraData
+import android.support.v4.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import com.google.gson.Gson
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var restResponse : RestBitcoinResponse
+    private lateinit var gson : Gson
 
     val URL = "https://api.coindesk.com/v1/bpi/currentprice.json"
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +46,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun goTo(devise: Devise) {
+        val fragment = EURFragment()
+
+        val args = Bundle()
+        args.putString("devise", gson.toJson(devise))
+        fragment.arguments = args
+
+
         val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.fragment, EURFragment())
+        ft.replace(R.id.fragment, fragment)
         ft.commit()
     }
 
@@ -69,7 +81,7 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility = View.VISIBLE
         }
 
-        val gson = GsonBuilder()
+        gson = GsonBuilder()
             .setLenient()
             .create()
 
@@ -90,6 +102,7 @@ class MainActivity : AppCompatActivity() {
             ) {
                 restResponse = response.body()
                 goTo(restResponse.bpi.EUR)
+                progressBar.visibility = View.GONE
                 }
         })
     }
