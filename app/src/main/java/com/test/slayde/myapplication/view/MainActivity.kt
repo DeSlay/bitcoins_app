@@ -1,7 +1,6 @@
 package com.test.slayde.myapplication.view
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
@@ -9,6 +8,7 @@ import android.view.View
 import com.google.gson.GsonBuilder
 import com.test.slayde.myapplication.BitcoinApi
 import com.test.slayde.myapplication.R
+import com.test.slayde.myapplication.model.Devise
 import com.test.slayde.myapplication.model.RestBitcoinResponse
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Callback
@@ -16,27 +16,33 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
+
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var restResponse : RestBitcoinResponse
 
     val URL = "https://api.coindesk.com/v1/bpi/currentprice.json"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        LoadEUR(EURFragment())
+        //goTo(EURFragment())
+        loadData()
+
         buttonEUR.setOnClickListener{
-            LoadEUR(EURFragment())
+            goTo(restResponse.bpi.EUR)
+
         }
 
         buttonUSD.setOnClickListener {
-            LoadEUR(Fragment())
+            goTo(restResponse.bpi.USD)
         }
 
     }
 
-    private fun LoadEUR(frag1 : Fragment) {
+    private fun goTo(devise: Devise) {
         val ft = supportFragmentManager.beginTransaction()
-        ft.replace(R.id.fragment, frag1)
+        ft.replace(R.id.fragment, EURFragment())
         ft.commit()
     }
 
@@ -48,7 +54,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.Load -> {
-                LoadBitcoinPrice()
+                loadData()
                 return true
 
             }
@@ -58,7 +64,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun LoadBitcoinPrice() {
+    private fun loadData() {
         runOnUiThread() {
             progressBar.visibility = View.VISIBLE
         }
@@ -82,9 +88,9 @@ class MainActivity : AppCompatActivity() {
                 call: retrofit2.Call<RestBitcoinResponse>?,
                 response: retrofit2.Response<RestBitcoinResponse>
             ) {
-                val restBitcoinResponse = response.body()
-                //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+                restResponse = response.body()
+                goTo(restResponse.bpi.EUR)
+                }
         })
     }
 }
