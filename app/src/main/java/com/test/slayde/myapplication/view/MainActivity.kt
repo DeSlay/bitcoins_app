@@ -19,6 +19,7 @@ import android.support.v4.app.SupportActivity.ExtraData
 import android.support.v4.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import com.google.gson.Gson
+import com.test.slayde.myapplication.model.time
 
 
 class MainActivity : AppCompatActivity() {
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         buttonUSD.isEnabled = false
 
         loadData()
-        
+
         buttonEUR.setOnClickListener{
             goTo(restResponse.bpi.EUR)
         }
@@ -56,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         ft.replace(R.id.fragment, fragment)
         ft.commit()
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main,menu)
@@ -107,5 +109,6 @@ class MainActivity : AppCompatActivity() {
 
         buttonEUR.isEnabled = true
         buttonUSD.isEnabled = true
+        progressBar.visibility = View.GONE
     }
 }
