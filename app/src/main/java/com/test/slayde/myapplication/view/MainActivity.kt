@@ -30,13 +30,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        buttonEUR.isEnabled = false
+        buttonUSD.isEnabled = false
 
-        //goTo(EURFragment())
         loadData()
-
+        
         buttonEUR.setOnClickListener{
             goTo(restResponse.bpi.EUR)
-
         }
 
         buttonUSD.setOnClickListener {
@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun goTo(devise: Devise) {
         val fragment = EURFragment()
-
         val args = Bundle()
         args.putString("devise", gson.toJson(devise))
         fragment.arguments = args
@@ -66,7 +65,6 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.Load -> {
-                loadData()
                 return true
 
             }
@@ -102,8 +100,12 @@ class MainActivity : AppCompatActivity() {
             ) {
                 restResponse = response.body()
                 goTo(restResponse.bpi.EUR)
-                progressBar.visibility = View.GONE
+
+                //progressBar.visibility = View.GONE
                 }
         })
+
+        buttonEUR.isEnabled = true
+        buttonUSD.isEnabled = true
     }
 }
