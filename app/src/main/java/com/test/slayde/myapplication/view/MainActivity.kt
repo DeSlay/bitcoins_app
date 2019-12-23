@@ -82,7 +82,6 @@ class MainActivity : AppCompatActivity() {
         val bitcoinApi = retrofit.create(BitcoinApi::class.java)
         bitcoinApi.getCurrentPrice().enqueue(object : Callback<RestBitcoinResponse> {
             override fun onFailure(call: retrofit2.Call<RestBitcoinResponse>?, t: Throwable?) {
-                //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onResponse(
@@ -92,7 +91,6 @@ class MainActivity : AppCompatActivity() {
                 restResponse = response.body()
                 goTo(restResponse.bpi.EUR)
 
-                //progressBar.visibility = View.GONE
                 }
         })
 
