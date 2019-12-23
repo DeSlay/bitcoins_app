@@ -23,7 +23,7 @@ class EURFragment : Fragment() {
         val devise = Gson().fromJson(jsonDevise, Devise::class.java)
 
         txtDevise.text = devise.code
-        bitcoinValues.text = devise.rate
+        bitcoinValues.text = devise.rate.split(".")[0]
         txtDescription.text = devise.description
 
     }
