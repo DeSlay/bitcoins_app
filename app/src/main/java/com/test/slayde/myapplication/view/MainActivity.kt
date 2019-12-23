@@ -64,17 +64,6 @@ class MainActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.Load -> {
-                return true
-
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-
 
     private fun loadData() {
         runOnUiThread() {
