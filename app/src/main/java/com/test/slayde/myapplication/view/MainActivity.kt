@@ -3,7 +3,6 @@ package com.test.slayde.myapplication.view
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import com.google.gson.GsonBuilder
 import com.test.slayde.myapplication.BitcoinApi
@@ -14,12 +13,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Callback
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import android.support.v4.app.SupportActivity
-import android.support.v4.app.SupportActivity.ExtraData
-import android.support.v4.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import com.google.gson.Gson
-import com.test.slayde.myapplication.model.time
 
 
 class MainActivity : AppCompatActivity() {
