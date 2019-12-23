@@ -45,7 +45,7 @@ L'application fait une requête sur le serveur  https://api.coindesk.com/v1/bpi/
 Elle est composée de deux boutons l'un permettant d'obtenir la valeur du bitcoin en EUR et l'autre en USD
 
 ## Aperçu de l'application
-
+![Capture](https://user-images.githubusercontent.com/44580853/71381145-99af8c00-25d2-11ea-8a33-b2625de86b8b.JPG)
 
    
 
