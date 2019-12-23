@@ -1,7 +1,7 @@
 # Bitcoins_app
-_(juste en dessous des badges sympatiques à placer)_
 
-[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)
+
+![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)
 
 Une petite description du projet
 
@@ -27,12 +27,6 @@ Les étapes pour installer votre programme :
 - Telecharger le repository github 
 - Installer l'application sur un mobile 
 
-On obtient une application de ce type : 
-
-
- 
-
-
 ## Démarrage
 
 Pour démarrer l'application, il faut tout simplement cliquer sur l'application "my_application", 
@@ -46,11 +40,9 @@ Elle est composée de deux boutons l'un permettant d'obtenir la valeur du bitcoi
 
 ## Aperçu de l'application
 ![Capture](https://user-images.githubusercontent.com/44580853/71381145-99af8c00-25d2-11ea-8a33-b2625de86b8b.JPG)
-
+![Capture2](https://user-images.githubusercontent.com/44580853/71381279-13477a00-25d3-11ea-8377-d339b504a996.JPG)
+![Capture3](https://user-images.githubusercontent.com/44580853/71381280-16426a80-25d3-11ea-9ada-1d6bad207755.JPG)
    
-
-
-
 ## Point de vue personnel 
 
 Je suis un nouveau étudiant à l'ESIEA, je trouve que c'etait une bonne experience, j'ai appris énormément de chose durant le développement de l'application, en effet cela m'a permis d'apprendre un nouveau langage : le kotlin, j'ai découvert aussi les REST API et les Fragments qui ont été indispensables  pour constituer mon application. 
@@ -64,8 +56,6 @@ Si j'avais eu plus de temps et plus de compétences, j'aurai pu faire des graphi
 Listez les versions ici 
 _exemple :_
 **Dernière version stable :** 1.0
-
-
 
 ## License
 
